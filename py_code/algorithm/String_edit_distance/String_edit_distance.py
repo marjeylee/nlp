@@ -34,7 +34,11 @@ def get_edit_distance(wrong_str, right_str):
 
 
 if __name__ == '__main__':
-    wrong_str = 'ha321ck'
-    right_str = 'hsssssankcs'
+    wrong_str = '我用混合式教学探索高中教学'
+    wrong_str1 = '我探索高中教学用混合式教学'
+    wrong_str2 = '今天天气真好啊'
+    right_str = '中学教师：我用app探索高中教学的“混合式学习”模式芥末堆注'
     edit_distance = get_edit_distance(wrong_str, right_str)
     print(edit_distance)
+    print(get_edit_distance(wrong_str1, right_str))
+    print(get_edit_distance(wrong_str2, right_str))

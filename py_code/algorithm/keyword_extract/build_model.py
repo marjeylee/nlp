@@ -84,4 +84,3 @@ if __name__ == '__main__':
     idf_dict = get_idf_dict(total_content, builder.idf_dic)
     json_str = json.dumps(idf_dict)
     builder.save_model(json_str)
-    print(1)

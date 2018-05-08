@@ -80,8 +80,11 @@ def get_validate_set(total_satisfy_map, current_layer):
             last_set.add(l)
     last_set = list(last_set)
     size = len(last_set)
+    location = []
     for i in range(current_layer):
-        pass
+        location.append(i)
+    print(location)
+
 
 
 def apriori(data_list, support):

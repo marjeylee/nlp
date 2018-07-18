@@ -1,19 +1,19 @@
-# -*- coding:utf-8 -*-
-# Filename: viterbi.py
-# Author：hankcs
-# Date: 2014-05-13 下午8:51
+"""
+HMM的一个Demo
+"""
 
-states = ('Rainy', 'Sunny')
+states = ('Rainy', 'Sunny')  # 天气状态 雨天，晴天
 
-observations = ('walk', 'shop', 'clean')
+observations = ('walk', 'shop', 'clean')  # 可观察到的行为：散步，购物，清扫
 
-start_probability = {'Rainy': 0.6, 'Sunny': 0.4}
-
+start_probability = {'Rainy': 0.6, 'Sunny': 0.4}  # 第一天初始概率
+# 转移概率
 transition_probability = {
     'Rainy': {'Rainy': 0.7, 'Sunny': 0.3},
     'Sunny': {'Rainy': 0.4, 'Sunny': 0.6},
 }
-
+# 发射概率（隐状态表现为显状态的概率）
+# e.g:雨天散步的概率是0.1
 emission_probability = {
     'Rainy': {'walk': 0.1, 'shop': 0.4, 'clean': 0.5},
     'Sunny': {'walk': 0.6, 'shop': 0.3, 'clean': 0.1},
@@ -40,7 +40,7 @@ def print_dptable(V):
 
 def viterbi(obs, states, start_p, trans_p, emit_p):
     """
-
+    根据看到的行为推测天气。
     :param obs:观测序列
     :param states:隐状态
     :param start_p:初始概率（隐状态）
@@ -76,7 +76,7 @@ def viterbi(obs, states, start_p, trans_p, emit_p):
 
     print_dptable(V)
     (prob, state) = max([(V[len(obs) - 1][y], y) for y in states])
-    return (prob, path[state])
+    return prob, path[state]
 
 
 def example():
